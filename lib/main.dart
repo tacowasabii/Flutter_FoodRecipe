@@ -73,6 +73,65 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: '상품을 검색해주세요.',
+                border: const OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.black,
+                  ),
+                ),
+                suffixIcon: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.search),
+                ),
+              ),
+            ),
+          ),
+          const Divider(
+            height: 1,
+          ),
+          Expanded(
+              child: ListView.builder(
+            itemCount: dataList.length,
+            itemBuilder: (context, index) {
+              Map<String, dynamic> data = dataList[index];
+              String category = data['category'];
+              String imgUrl = data['imgUrl'];
+
+              return Card(
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.network(
+                      imgUrl,
+                      width: double.infinity,
+                      height: 120,
+                      fit: BoxFit.cover,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      height: 120,
+                      color: Colors.black.withOpacity(0.5),
+                    ),
+                    Text(
+                      category,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 36,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ))
+        ],
+      ),
     );
   }
 }
