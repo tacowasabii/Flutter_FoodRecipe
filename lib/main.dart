@@ -50,6 +50,29 @@ class HomePage extends StatelessWidget {
     ];
 
     // 화면에 보이는 영역
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        centerTitle: false,
+        iconTheme: const IconThemeData(color: Colors.black),
+        title: const Text(
+          'Foode Recipe',
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.person_outline,
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
